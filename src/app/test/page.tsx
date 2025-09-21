@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TestClient from "./components/TestClient";
 import { getServerMessage } from "../actions/test";
 
@@ -10,7 +11,7 @@ async function getApiMessage() {
       }
     );
     return await response.json();
-  } catch (error) {
+  } catch {
     return { success: false, error: "API error" };
   }
 }
@@ -57,12 +58,12 @@ export default async function TestPage() {
 
         {/* Navigation */}
         <div className="text-center">
-          <a
+          <Link
             href="/"
             className="inline-block bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-6 py-3 rounded-lg font-semibold hover:opacity-80 transition-opacity"
           >
             Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

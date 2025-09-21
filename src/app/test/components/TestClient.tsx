@@ -5,7 +5,12 @@ import { processTestData } from "../../actions/test";
 
 export default function TestClient() {
   const [data, setData] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    processed: boolean;
+    originalData: string;
+    result: string;
+    timestamp: string;
+  } | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
