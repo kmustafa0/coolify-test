@@ -7,12 +7,17 @@ export async function GET() {
       message: "VPS test successful! Server is running.",
       timestamp: new Date().toISOString(),
       server: "Next.js API Route",
+      health: "healthy",
     };
 
-    return NextResponse.json(message);
+    return NextResponse.json(message, { status: 200 });
   } catch {
     return NextResponse.json(
-      { success: false, error: "Server error" },
+      {
+        success: false,
+        error: "Server error",
+        health: "unhealthy",
+      },
       { status: 500 }
     );
   }
